@@ -1,6 +1,6 @@
 /*Projekti ne Github*/
 
-/*Arbeniti Ktuu*/
+/*Arbeniti Ktuuuuuuu*/
 
 #include <iostream>
 
