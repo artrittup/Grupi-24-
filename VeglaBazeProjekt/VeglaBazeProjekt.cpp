@@ -1,5 +1,4 @@
-// VeglaBazeProjekt.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+/*Projekti ne Github*/
 
 #include <iostream>
 
