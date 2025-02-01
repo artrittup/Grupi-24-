@@ -31,6 +31,21 @@ void shfaqBilancin()
 {
     cout << "Bilanci aktual: " << bilanci << " EUR" << endl;
 }
+// Funksioni për depozitim
+void depono(double shume)
+{
+    if (!verifikoPIN())
+        return;
+
+    if (shume <= 0)
+    {
+        cout << "Shuma e depozitimit duhet të jete me e madhe se 0!" << endl;
+        return;
+    }
+
+    bilanci += shume;
+    cout << "Depozitimi u krye me sukses! Bilanci i ri: " << bilanci << " EUR" << endl;
+}
 
 
 int main()
@@ -42,6 +57,7 @@ int main()
         cout << "\n------------------------------" << endl;
         cout << "Menyja e Bankes" << endl;
         cout << "1. Shfaq bilancin" << endl;
+        cout << "2. Depono para" << endl;
         cout << "0. Dil" << endl;
         cout << "Zgjedhni nje opsion: ";
         cin >> zgjedhja;
@@ -52,6 +68,14 @@ int main()
         case 1:
             shfaqBilancin();
             break;
+        case 2:
+        {
+            double shume;
+            cout << "Shuma per depozite: ";
+            cin >> shume;
+            depono(shume);
+            break;
+        }
         case 0:
             cout << "Faleminderit qe perdoret sistemin tone!" << endl;
             break;
