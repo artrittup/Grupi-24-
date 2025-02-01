@@ -7,7 +7,6 @@
 
 #include <iostream>
 using namespace std;
-
 struct Llogaria
 {
     int numri;
@@ -39,6 +38,11 @@ int main()
     a.depono(deponimi);
     cout << "Bilanci final: " << endl
         << a.bilanci;
+
+
+int main()
+{
+    cout << "Checkout the branch";
     return 0;
 }
 
