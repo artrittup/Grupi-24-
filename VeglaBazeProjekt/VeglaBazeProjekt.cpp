@@ -1,22 +1,18 @@
 /*Projekti ne Github*/
 
-/*Detyrat per Artrit Telakub: Krijo aplikacionin, funksione dhe rregullo funksionin main*/
-/*Detyrat per Arbenit Krasniq-in: Krijo nje funksion dhe inmplemento ne main*/
-/*Detyrat per Orges Gegaj: Krijo nje funksion dhe inmplemento ne main*/
 
 
 #include <iostream>
 using namespace std;
-// Variablat globale
+
 int numri = 1143215;
-double bilanci = 700.52;
+double bilanci = 700.30;
 int pin_kodi = 123;
 
-// Funksioni për verifikimin e PIN-it
 bool verifikoPIN()
 {
     int pin;
-    cout << "Pin kodi: ";
+    cout << "Pin kodi (pini eshte: 123): ";
     cin >> pin;
     if (pin_kodi != pin)
     {
@@ -26,12 +22,11 @@ bool verifikoPIN()
     return true;
 }
 
-// Funksioni për të shfaqur bilancin
 void shfaqBilancin()
 {
     cout << "Bilanci aktual: " << bilanci << " EUR" << endl;
 }
-// Funksioni për depozitim
+
 void depono(double shume)
 {
     if (!verifikoPIN())
@@ -48,6 +43,36 @@ void depono(double shume)
 }
 
 
+void transferoPara()
+{
+    if (!verifikoPIN()) 
+        return;
+
+    int nr_llogarie;
+    double shume;
+
+    cout << "Vendos numrin e llogarise se marresit: ";
+    cin >> nr_llogarie;
+    cout << "Vendos shumen per transferim: ";
+    cin >> shume;
+
+    if (shume <= 0)
+    {
+        cout << "Shuma duhet të jetë më e madhe se 0!" << endl;
+        return;
+    }
+
+    if (shume > bilanci)
+    {
+        cout << "Nuk keni fonde të mjaftueshme!" << endl;
+        return;
+    }
+
+    bilanci -= shume;
+    cout << "Transferimi u krye me sukses ne bilancin"<<" '--"<<nr_llogarie<<"--'" << " Bilanci i ri : " << bilanci << " EUR" << endl;
+}
+
+
 int main()
 {
     int zgjedhja;
@@ -58,6 +83,7 @@ int main()
         cout << "Menyja e Bankes" << endl;
         cout << "1. Shfaq bilancin" << endl;
         cout << "2. Depono para" << endl;
+        cout << "3. Transfero para" << endl;
         cout << "0. Dil" << endl;
         cout << "Zgjedhni nje opsion: ";
         cin >> zgjedhja;
@@ -76,6 +102,9 @@ int main()
             depono(shume);
             break;
         }
+        case 3:
+            transferoPara();
+            break;
         case 0:
             cout << "Faleminderit qe perdoret sistemin tone!" << endl;
             break;
