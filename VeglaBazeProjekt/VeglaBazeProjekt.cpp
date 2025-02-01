@@ -7,42 +7,60 @@
 
 #include <iostream>
 using namespace std;
-struct Llogaria
-{
-    int numri;
-    double bilanci;
-    int pin_kodi;
+// Variablat globale
+int numri = 1143215;
+double bilanci = 700.52;
+int pin_kodi = 123;
 
-    void depono(double deponim)
+// Funksioni për verifikimin e PIN-it
+bool verifikoPIN()
+{
+    int pin;
+    cout << "Pin kodi: ";
+    cin >> pin;
+    if (pin_kodi != pin)
     {
-        int pin;
-        cout << "Pin kodi: ";
-        cin >> pin;
-        if (pin_kodi != pin)
+        cout << "PIN gabim! Provo perseri." << endl;
+        return false;
+    }
+    return true;
+}
+
+// Funksioni për të shfaqur bilancin
+void shfaqBilancin()
+{
+    cout << "Bilanci aktual: " << bilanci << " EUR" << endl;
+}
+
+
+int main()
+{
+    int zgjedhja;
+
+    do
+    {
+        cout << "\n------------------------------" << endl;
+        cout << "Menyja e Bankes" << endl;
+        cout << "1. Shfaq bilancin" << endl;
+        cout << "0. Dil" << endl;
+        cout << "Zgjedhni nje opsion: ";
+        cin >> zgjedhja;
+
+        
+        switch (zgjedhja)
         {
-            cout << "Pin gabim" << endl;
-            return;
+        case 1:
+            shfaqBilancin();
+            break;
+        case 0:
+            cout << "Faleminderit qe perdoret sistemin tone!" << endl;
+            break;
+        default:
+            cout << "Zgjedhje e pavlefshme! Provo përseri." << endl;
         }
 
-        bilanci += deponim;
-    }
-};
+    } while (zgjedhja != 0);
 
-int main()
-{
-    Llogaria a{ 1143215, 700.52, 123 };
-    cout << "Bilanci fillestar: " << a.bilanci << endl;
-    double deponimi;
-    cout << "Sa doni ti depononi:";
-    cin >> deponimi;
-    a.depono(deponimi);
-    cout << "Bilanci final: " << endl
-        << a.bilanci;
-
-
-int main()
-{
-    cout << "Checkout the branch";
     return 0;
 }
 
