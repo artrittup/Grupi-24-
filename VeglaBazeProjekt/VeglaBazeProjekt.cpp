@@ -12,7 +12,7 @@ int pin_kodi = 123;
 bool verifikoPIN()
 {
     int pin;
-    cout << "Pin kodi (pini eshte: 123): ";
+    cout << "Pin kodi:";
     cin >> pin;
     if (pin_kodi != pin)
     {
@@ -45,7 +45,7 @@ void depono(double shume)
 
 void transferoPara()
 {
-    if (!verifikoPIN()) 
+    if (!verifikoPIN())
         return;
 
     int nr_llogarie;
@@ -69,7 +69,28 @@ void transferoPara()
     }
 
     bilanci -= shume;
-    cout << "Transferimi u krye me sukses ne bilancin"<<" '--"<<nr_llogarie<<"--'" << " Bilanci i ri : " << bilanci << " EUR" << endl;
+    cout << "Transferimi u krye me sukses ne bilancin" << " '--" << nr_llogarie << "--'" << " Bilanci i ri : " << bilanci << " EUR" << endl;
+}
+
+void ndryshoPIN()
+{
+    if (!verifikoPIN())
+        return;
+
+    int pinRi, pinKonfirmim;
+    cout << "Vendos PIN-in e ri: ";
+    cin >> pinRi;
+    cout << "Konfirmo PIN-in e ri: ";
+    cin >> pinKonfirmim;
+
+    if (pinRi != pinKonfirmim)
+    {
+        cout << "PIN-at nuk përputhen! Provo përsëri." << endl;
+        return;
+    }
+
+    pin_kodi = pinRi;
+    cout << "PIN-i u ndryshua me sukses!" << endl;
 }
 
 
@@ -84,11 +105,12 @@ int main()
         cout << "1. Shfaq bilancin" << endl;
         cout << "2. Depono para" << endl;
         cout << "3. Transfero para" << endl;
+        cout << "4. Ndrsho PIN-in" << endl;
         cout << "0. Dil" << endl;
         cout << "Zgjedhni nje opsion: ";
         cin >> zgjedhja;
 
-        
+
         switch (zgjedhja)
         {
         case 1:
@@ -104,6 +126,9 @@ int main()
         }
         case 3:
             transferoPara();
+            break;
+        case 4:
+            ndryshoPIN();
             break;
         case 0:
             cout << "Faleminderit qe perdoret sistemin tone!" << endl;
