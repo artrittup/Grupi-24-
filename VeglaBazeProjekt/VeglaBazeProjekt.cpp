@@ -5,14 +5,14 @@
 #include <iostream>
 using namespace std;
 
-int numri = 1143215;
-double bilanci = 700.30;
+int numri = 111111;
+double bilanci = 700.3;
 int pin_kodi = 123;
 
 bool verifikoPIN()
 {
     int pin;
-    cout << "Pin kodi:";
+    cout << "PIN kodi: ";
     cin >> pin;
     if (pin_kodi != pin)
     {
@@ -27,7 +27,7 @@ void shfaqDetajetELlogarise() {
 
     cout << "\nDetajet e llogarise:" << endl;
     cout << "Numri i llogarise: " << numri << endl;
-    cout << "Bilanci aktual: " << bilanci << " EUR" << endl;
+    cout << "Bilanci aktual: " << bilanci << " EURO" << endl;
 }
 
 void depono(double shume)
@@ -42,7 +42,7 @@ void depono(double shume)
     }
 
     bilanci += shume;
-    cout << "Depozitimi u krye me sukses! Bilanci i ri: " << bilanci << " EUR" << endl;
+    cout << "Depozitimi u krye me sukses! Bilanci i ri: " << bilanci << " EURO" << endl;
 }
 
 
@@ -72,7 +72,7 @@ void transferoPara()
     }
 
     bilanci -= shume;
-    cout << "Transferimi u krye me sukses ne llogarine:" << " " << nr_llogarie << " " <<endl<< "Bilanci juaj i ri : " << bilanci << " EUR" << endl;
+    cout << "Transferimi prej "<<shume<<" EURO"<<" u krye me sukses ne llogarine: " << nr_llogarie <<endl<< "Bilanci juaj i ri : " << bilanci << " EURO" << endl;
 }
 
 void ndryshoPIN()
@@ -88,7 +88,7 @@ void ndryshoPIN()
 
     if (pinRi != pinKonfirmim)
     {
-        cout << "PIN-at nuk përputhen! Provo përsëri." << endl;
+        cout << "PIN-at nuk përputhen! Provo perseri." << endl;
         return;
     }
 
@@ -109,12 +109,12 @@ void terhiq(double shume)
 
     if (shume > bilanci)
     {
-        cout << "Fondet nuk janë të mjaftueshme!" << endl;
+        cout << "Fondet nuk janë te mjaftueshme!" << endl;
         return;
     }
 
     bilanci -= shume;
-    cout << "Terheqja u krye me sukses! Bilanci i ri: " << bilanci << " EUR" << endl;
+    cout << "Terheqja u krye me sukses! Bilanci i ri:" << bilanci << " EURO" << endl;
 }
 
 
@@ -125,12 +125,12 @@ int main()
     do
     {
         cout << "\n------------------------------" << endl;
-        cout << "Menyja e Bankes" << endl;
+        cout << "MENYJA E BANKES" << endl;
         cout << "1. Shfaq detajet e llogarise" << endl;
-        cout << "2. Depono para" << endl;
-        cout << "3. Transfero para" << endl;
-        cout << "4. Ndrsho PIN-in" << endl;
-        cout << "5. Terhiq para" << endl;
+        cout << "2. Terhiq para" << endl;
+        cout << "3. Depono para" << endl;
+        cout << "4. Transfero para" << endl;
+        cout << "5. Ndrsho PIN-in" << endl;
         cout << "0. Dil" << endl;
         cout << "------------------------------" << endl;
         cout << "Zgjedhni nje opsion: ";
@@ -145,25 +145,26 @@ int main()
         case 2:
         {
             double shume;
-            cout << "Shuma per depozite: ";
-            cin >> shume;
-            depono(shume);
-            break;
-        }
-        case 3:
-            transferoPara();
-            break;
-        case 4:
-            ndryshoPIN();
-            break;
-        case 5:
-        {
-            double shume;
             cout << "Shuma per terheqje: ";
             cin >> shume;
             terhiq(shume);
             break;
         }
+        case 3:
+        {
+            double shume;
+            cout << "Shuma per depozite: ";
+            cin >> shume;
+            depono(shume);
+            break;
+        }
+        case 4:
+            transferoPara();
+            break;
+        case 5:
+            ndryshoPIN();
+            break;
+        
         case 0:
             cout << "Faleminderit qe perdoret sistemin tone!" << endl;
             break;
