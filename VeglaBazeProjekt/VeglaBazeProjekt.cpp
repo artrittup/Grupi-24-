@@ -22,8 +22,11 @@ bool verifikoPIN()
     return true;
 }
 
-void shfaqBilancin()
-{
+void shfaqDetajetELlogarise() {
+    if (!verifikoPIN()) return;
+
+    cout << "\nDetajet e llogarise:" << endl;
+    cout << "Numri i llogarise: " << numri << endl;
     cout << "Bilanci aktual: " << bilanci << " EUR" << endl;
 }
 
@@ -123,7 +126,7 @@ int main()
     {
         cout << "\n------------------------------" << endl;
         cout << "Menyja e Bankes" << endl;
-        cout << "1. Shfaq bilancin" << endl;
+        cout << "1. Shfaq detajet e llogarise" << endl;
         cout << "2. Depono para" << endl;
         cout << "3. Transfero para" << endl;
         cout << "4. Ndrsho PIN-in" << endl;
@@ -137,7 +140,7 @@ int main()
         switch (zgjedhja)
         {
         case 1:
-            shfaqBilancin();
+            shfaqDetajetELlogarise();
             break;
         case 2:
         {
