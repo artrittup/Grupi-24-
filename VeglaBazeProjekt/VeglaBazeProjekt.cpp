@@ -107,6 +107,7 @@ int main()
         cout << "3. Transfero para" << endl;
         cout << "4. Ndrsho PIN-in" << endl;
         cout << "0. Dil" << endl;
+        cout << "------------------------------" << endl;
         cout << "Zgjedhni nje opsion: ";
         cin >> zgjedhja;
 
