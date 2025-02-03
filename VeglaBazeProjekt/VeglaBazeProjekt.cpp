@@ -69,7 +69,7 @@ void transferoPara()
     }
 
     bilanci -= shume;
-    cout << "Transferimi u krye me sukses ne bilancin" << " '--" << nr_llogarie << "--'" << " Bilanci i ri : " << bilanci << " EUR" << endl;
+    cout << "Transferimi u krye me sukses ne llogarine:" << " " << nr_llogarie << " " <<endl<< "Bilanci juaj i ri : " << bilanci << " EUR" << endl;
 }
 
 void ndryshoPIN()
@@ -135,7 +135,7 @@ int main()
             cout << "Faleminderit qe perdoret sistemin tone!" << endl;
             break;
         default:
-            cout << "Zgjedhje e pavlefshme! Provo përseri." << endl;
+            cout << "Zgjedhje e pavlefshme! Provo perseri." << endl;
         }
 
     } while (zgjedhja != 0);
