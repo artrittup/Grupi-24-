@@ -93,6 +93,27 @@ void ndryshoPIN()
     cout << "PIN-i u ndryshua me sukses!" << endl;
 }
 
+void terhiq(double shume)
+{
+    if (!verifikoPIN())
+        return;
+
+    if (shume <= 0)
+    {
+        cout << "Shuma e terheqjes duhet të jete me e madhe se 0!" << endl;
+        return;
+    }
+
+    if (shume > bilanci)
+    {
+        cout << "Fondet nuk janë të mjaftueshme!" << endl;
+        return;
+    }
+
+    bilanci -= shume;
+    cout << "Terheqja u krye me sukses! Bilanci i ri: " << bilanci << " EUR" << endl;
+}
+
 
 int main()
 {
@@ -106,6 +127,7 @@ int main()
         cout << "2. Depono para" << endl;
         cout << "3. Transfero para" << endl;
         cout << "4. Ndrsho PIN-in" << endl;
+        cout << "5. Terhiq para" << endl;
         cout << "0. Dil" << endl;
         cout << "------------------------------" << endl;
         cout << "Zgjedhni nje opsion: ";
@@ -131,6 +153,14 @@ int main()
         case 4:
             ndryshoPIN();
             break;
+        case 5:
+        {
+            double shume;
+            cout << "Shuma per terheqje: ";
+            cin >> shume;
+            terhiq(shume);
+            break;
+        }
         case 0:
             cout << "Faleminderit qe perdoret sistemin tone!" << endl;
             break;
