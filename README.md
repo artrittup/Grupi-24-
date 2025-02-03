@@ -24,4 +24,5 @@
 3.Ndjek udhëzimet në terminal për të kryer veprimet bankare.
 
   __Shembull i përdorimit__
+  
   ![image alt](https://github.com/artrittup/VeglaBazeProjekt/blob/31725b14482db4586ca33948998255692a834967/shembull_funksioni1.png)
